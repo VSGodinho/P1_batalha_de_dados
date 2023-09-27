@@ -5,7 +5,38 @@ void jogo() {
   //Introdução e Rodadas
   stdout.writeln("Batalha de Dados\nQuantas rodadas gostaria de jogar?");
   int n = int.parse(stdin.readLineSync()!);
-  //Rolagem, Calculo e Determinação de vencedor
 
+  //Rolagem, Calculo e Determinação de vencedor
+  for (int i = 0; i < n; i++) {
+    //Dados e soma do usuário
+    var gerador = Random();
+    int d1 = gerador.nextInt(6) + 1;
+    int d2 = gerador.nextInt(6) + 1;
+    int d3 = gerador.nextInt(6) + 1;
+    int sd1 = (d1 + d2 + d3);
+    stdout.writeln("Seus dados: $d1, $d2, $d3\nSoma: $sd1");
+
+    //Dados e soma oponente
+    int d4 = gerador.nextInt(6) + 1;
+    int d5 = gerador.nextInt(6) + 1;
+    int d6 = gerador.nextInt(6) + 1;
+    int sd2 = (d1 + d2 + d3);
+    stdout.writeln("Dados do oponente: $d4, $d5, $d6\nSoma: $sd2");
+
+    //Vencedor
+    int v = 0, p = 0, e = 0;
+    if (sd1 > sd2) {
+      stdout.writeln("Você ganhou!!");
+      v = v + 1;
+    } else {
+      if (sd2 > sd1) {
+        stdout.writeln("Você perdeu!!");
+        p = p + 1;
+      } else {
+        stdout.writeln("Empate!!");
+        e = e + 1;
+      }
+    }
+  }
   //Placar e vencedor
 }
